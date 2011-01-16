@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>MooClip Demo</title>
+	<script type="text/javascript" src="Mootools.Core.js"></script>
+	<script type="text/javascript" src="../Source/MooClip.js"></script>
+	<link rel="stylesheet" href="demo.css" media="screen" />
+</head>
+<body>
+	<h1>MooClip Demo</h1>
+	<div id="container">
+<!-- Example 1 -->
+		<div class="block">
+			<h2>Example 1</h2>
+			<p>Click on the button to copy the value of the textarea</p>
+			<textarea id="example1-text" cols="50" rows="5">MooClip example 1</textarea>
+			<button id="example1">Copy to Clipboard</button>
+			<script>
+				new MooClip('#example1', {
+					moviePath: '../Source/ZeroClipboard.swf',
+					dataSource: function(target){
+						return document.id('example1-text').get('value');
+					}
+				});
+			</script>
+		</div>
+<!-- Example 2 -->
+		<div class="block">
+			<h2>Example 2</h2>
+			<p>Click on the button to copy the value of his "data-copy" attribute.</p>
+			<button id="example2" data-copy="MooClip example 2">Copy to Clipboard</button>
+			<script>
+				new MooClip(document.id('example2'), {
+					moviePath: '../Source/ZeroClipboard.swf',
+					onCopy: function(){
+						if(console && console.log) console.log('Copy finished, check your clipboard !');
+					}
+				});
+			</script>
+		</div>
+	</div>
+</body>
+</html>
