@@ -13,11 +13,11 @@ Just call the constructor with the element(s) as first parameter and the options
 
 HTML:
 
-	<button id="mycopybuttton" data-copy="Text to copy">Copy to Clipboard</button>
+	<button id="mycopybutton" data-copy="Text to copy">Copy to Clipboard</button>
 
 JavaScript:
 
-	new MooClip('#mycopybuttton', {
+	new MooClip('#mycopybutton', {
 		onCopy: function(e){
 			// do stuff
 		}
